@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;//для интерфейса пользователя
 
+
 public class tepMove : MonoBehaviour
 {
     public CharacterController2D controller;
@@ -10,15 +11,17 @@ public class tepMove : MonoBehaviour
     float speed = 25f;
     bool jump = false;
 
-    private int BottleCount;//считать бутылки
-    public Text ScoreText;//писать текст
+    private int BottleCount=0;//считать бутылки
+    private int CoinCount = 0;
+    public Text BottleText;//писать текст
+    public Text CoinText;
 
     // Update is called once per frame
     void Update()
     {
-        ScoreText.text = "Score:" + BottleCount.ToString();
+        BottleText.text = "Bottles:" + BottleCount.ToString();//пишем бутылки каждый кадр
+        CoinText.text = "Coins:" + CoinCount.ToString();
         hMove = Input.GetAxisRaw("Horizontal")*speed;
-        Debug.Log(hMove);
         if (Input.GetButtonDown("Jump") )
         {
             jump = true;
@@ -33,4 +36,9 @@ public class tepMove : MonoBehaviour
     {
         BottleCount += 1;
     }
+    public void CoinAdd() //метод для увеличения количества монеток
+    {
+        CoinCount += 1;
+    }
+
 }
