@@ -53,11 +53,12 @@
     <UnityVersion>2020.3.17f1</UnityVersion>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\restarter.cs" />
     <Compile Include="Assets\Scripts\bottleCont.cs" />
     <Compile Include="Assets\Scripts\tepMove.cs" />
-    <Compile Include="Assets\Scripts\CharacterController2D.cs" />
     <Compile Include="Assets\Scripts\CoinCont.cs" />
-    <Compile Include="Assets\Scripts\restarter.cs" />
+    <Compile Include="Assets\Scripts\CharacterController2D.cs" />
+    <Compile Include="Assets\Scripts\newPlayer\NewPlayerCont.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
