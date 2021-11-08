@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;//для интерфейса пользователя
 
@@ -11,7 +9,7 @@ public class tepMove : MonoBehaviour
     float speed = 25f;
     bool jump = false;
 
-    private int BottleCount=0;//считать бутылки
+    private int BottleCount = 0;//считать бутылки
     private int CoinCount = 0;
     public Text BottleText;//писать текст
     public Text CoinText;
@@ -21,15 +19,15 @@ public class tepMove : MonoBehaviour
     {
         BottleText.text = "Bottles:" + BottleCount.ToString();//пишем бутылки каждый кадр
         CoinText.text = "Coins:" + CoinCount.ToString();
-        hMove = Input.GetAxisRaw("Horizontal")*speed;
-        if (Input.GetButtonDown("Jump") )
+        hMove = Input.GetAxisRaw("Horizontal") * speed;
+        if (Input.GetButtonDown("Jump"))
         {
             jump = true;
         }
     }
     private void FixedUpdate()
     {
-        controller.Move(hMove*Time.fixedDeltaTime,false,jump);
+        controller.Move(hMove * Time.fixedDeltaTime, false, jump);
         jump = false;
     }
     public void BottleAdd() //метод для увеличения количества бутылок

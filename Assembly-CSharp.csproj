@@ -56,9 +56,11 @@
     <Compile Include="Assets\Scripts\restarter.cs" />
     <Compile Include="Assets\Scripts\bottleCont.cs" />
     <Compile Include="Assets\Scripts\tepMove.cs" />
+    <Compile Include="Assets\Scripts\BulletCont.cs" />
     <Compile Include="Assets\Scripts\CoinCont.cs" />
     <Compile Include="Assets\Scripts\CharacterController2D.cs" />
     <Compile Include="Assets\Scripts\newPlayer\NewPlayerCont.cs" />
+    <Compile Include="Assets\Scripts\LiftCont.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

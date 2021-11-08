@@ -1,6 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class NewPlayerCont : MonoBehaviour
 {
@@ -15,12 +14,14 @@ public class NewPlayerCont : MonoBehaviour
 
     private bool canAtk = true;
 
-
+    private Vector3 castPoint;
+    private GameObject castBulletPrefab;
 
     void Start()
     {
         rb2 = gameObject.GetComponent<Rigidbody2D>();
         PlayerAnim = gameObject.GetComponent<Animator>();
+        castBulletPrefab = Resources.Load<GameObject>("Bullet/CastBullet");
     }
     void Update()
     {
@@ -36,17 +37,20 @@ public class NewPlayerCont : MonoBehaviour
             canAtk = false;
             PlayerAnim.SetTrigger("atk1");
             rb2.velocity = new Vector2(0, 0); //потом тут будут косяки!!!
-            Invoke("CanAttack",0.5f);
+            Invoke("CanAttack", 0.5f);
         }
         if (Input.GetButtonDown("Fire2") && canAtk)
         {
-            canAtk = false;
             PlayerAnim.SetTrigger("cast");
-            rb2.velocity = new Vector2(0, 0); //потом тут будут косяки!!!
-            Invoke("CanAttack", 0.5f);
         }
-
-
+    }
+    void Cast()
+    {
+            canAtk = false;
+            rb2.velocity = new Vector2(0, 0); //потом тут будут косяки!!!
+            castPoint = GameObject.Find("CastPoint").GetComponent<Transform>().position;
+            Instantiate(castBulletPrefab, castPoint, Quaternion.identity);
+            Invoke("CanAttack", 0.5f);
     }
     void Movement(float move, float spd)
     {
@@ -68,5 +72,12 @@ public class NewPlayerCont : MonoBehaviour
     void CanAttack()
     {
         canAtk = true;
+    }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.name=="LiftKiller")
+        {
+            SceneManager.LoadScene("lvl2");
+        }
     }
 }
