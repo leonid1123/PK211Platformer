@@ -52,6 +52,9 @@ TagManager:
   - name: Player
     uniqueID: 4269686973
     locked: 0
+  - name: Lift
+    uniqueID: 629592893
+    locked: 0
   - name: Foreground
     uniqueID: 597819061
     locked: 0

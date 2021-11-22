@@ -5,13 +5,9 @@ using UnityEngine;
 public class LiftCont : MonoBehaviour
 {
     int a = 1;
-    void Start()
-    {
-        
-    }
     void FixedUpdate()
     {
-        gameObject.transform.Translate(a*Vector2.up*Time.deltaTime);
+        gameObject.transform.Translate(a*Vector2.up*Time.fixedDeltaTime);
         if (gameObject.transform.position.y>3)
         {
             a = -1;
